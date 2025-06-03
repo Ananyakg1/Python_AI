@@ -1,4 +1,4 @@
 [pynguin]
 project_path = "."
-module_name = "my_math.py"
+module_name = "app.calculator"
 output_path = "generated_tests"
