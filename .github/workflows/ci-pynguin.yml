@@ -1,0 +1,43 @@
+
+name: AI Test Generation with Pynguin
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pynguin-ai-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install project dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || echo "No requirements.txt found"
+          pip install pynguin pytest
+
+      - name: Generate unit tests with Pynguin
+        run: |
+          pynguin \
+            --project-path . \
+            --module-name my_math.py \
+            --output-path generated_tests
+
+      - name: Run generated tests with pytest
+        run: |
+          pytest generated_tests/
+
+      - name: Upload generated tests as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pynguin-tests
+          path: generated_tests/
