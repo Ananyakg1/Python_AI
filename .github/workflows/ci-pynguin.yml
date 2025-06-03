@@ -24,6 +24,10 @@ jobs:
           pip install numpy
           pip install pynguin pytest
 
+      - name: Show repo files
+        run: ls -R
+
+
       - name: Generate unit tests with Pynguin
         run: |
           pynguin
