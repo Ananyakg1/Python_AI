@@ -29,7 +29,7 @@ jobs:
         run: |
           pynguin \
             --project-path . \
-            --module-name your_module_name \
+            --module-name my_math.py \
             --output-path generated_tests
 
       - name: Run generated tests with pytest
