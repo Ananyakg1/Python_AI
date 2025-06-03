@@ -31,6 +31,9 @@ jobs:
             --module-name my_math.py \
             --output-path generated_tests
 
+        env:
+         PYNGUIN_DANGER_AWARE: true
+
       - name: Run generated tests with pytest
         run: |
           pytest generated_tests/
