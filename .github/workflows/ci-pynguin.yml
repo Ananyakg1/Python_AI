@@ -26,10 +26,9 @@ jobs:
 
       - name: Generate unit tests with Pynguin
         run: |
-          pynguin --config pynguin-config.toml
-
+          pynguin
         env:
-         PYNGUIN_DANGER_AWARE: true
+          PYNGUIN_DANGER_AWARE: true
 
       - name: Run generated tests with pytest
         run: |
