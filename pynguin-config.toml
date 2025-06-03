@@ -1,0 +1,4 @@
+[pynguin]
+project_path = "."
+module_name = "my_math.py"
+output_path = "generated_tests"
