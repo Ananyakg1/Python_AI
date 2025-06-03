@@ -26,10 +26,7 @@ jobs:
 
       - name: Generate unit tests with Pynguin
         run: |
-          pynguin \
-            --project-path . \
-            --module-name my_math.py \
-            --output-path generated_tests
+          pynguin --config pynguin-config.toml
 
         env:
          PYNGUIN_DANGER_AWARE: true
