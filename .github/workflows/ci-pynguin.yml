@@ -30,6 +30,9 @@ jobs:
         env:
           PYNGUIN_DANGER_AWARE: true
 
+      - name: List generated tests
+        run: ls -R generated_tests || echo "No tests generated"
+
       - name: Run generated tests with pytest
         run: |
           pytest generated_tests/
